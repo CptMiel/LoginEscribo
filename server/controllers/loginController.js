@@ -42,13 +42,13 @@ const locals = {
 exports.loginUser = async (req, res) => {
   const {email, senha} = req.body
   //Validação
-  if(!email) {
+/*   if(!email) {
       return res.status(422).json({ mensagem: "O E-mail é obrigatório!" })
   }
 
   if(!senha) {
       return res.status(422).json({ mensagem: "A Senha é obrigatória!" })
-  }
+  } */
 
   //Checar se Usuário existe
   const user = await User.findOne({ email: email })
@@ -56,10 +56,10 @@ exports.loginUser = async (req, res) => {
   return res.status(401).json({ mensagem: "Usuário e/ou senha inválidos" })
   }
   //Checar Senha
-  const checkSenha = await bcrypt.compare(senha, user.senha)
+/*   const checkSenha = await bcrypt.compare(senha, user.senha)
   if(!checkSenha) {
       return res.status(401).json({ mensagem: "Usuário e/ou senha inválidos" })
-  }
+  } */
   try {
       user.ultimo_login = new Date();
 //       const secret = process.env.SECRET
@@ -114,12 +114,12 @@ exports.postAdmin = async (req, res) => {
     }
 
     // Criar Senha com Criptografia
-    const salt = await bcrypt.genSalt(12)
-    const CryptografiaHash = await bcrypt.hash(senha, salt)
+/*     const salt = await bcrypt.genSalt(12)
+    const CryptografiaHash = await bcrypt.hash(senha, salt) */
     const newUser = new User({
         nome,
         email,
-        senha: CryptografiaHash,
+        senha,
         ddd,
         numero,
     });
