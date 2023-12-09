@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Login</h1>
+
+    <form action ="/login" method="post" id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+    
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p id="mensagem"></p>
+    <hr>
+    <div>
+        <!-- <button type="button" class="button2" onclick="DemoAdmin()">DemoAdmin</button> -->
+        <button type="button" class="button2" onclick="window.location.href='/addAdmin'">Registre-se</button>
+    </div>
+</div>

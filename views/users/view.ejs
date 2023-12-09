@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-between flex-wrap flex-md noweap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><%= user.nome %> </h1>
+    <div class="btn-tollbar mb-2 mb-md 0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Compartilhar</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+            <a href="/paineldecontrole" class="btn btn-sm btn-outline-secondary">Painel de Controle</a>
+        </div>
+    </div>
+</div>
+<div class="col py-3">
+    <div class="row">
+        <div class="col">
+            <div class="col text-end fw-lighter">
+                <b><strong>Último Login</strong> <%= new Date(user.ultimo_login).toUTCString()  %>  </b>
+                <b><strong>Id Usuário</strong></b> <%= user._id %>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>Nome:</b></div>
+            <div class="col"><%= user.nome %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>E-mail:</b></div>
+            <div class="col"><%= user.email %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>DDD:</b></div>
+            <div class="col"><%= user.ddd %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>Número:</b></div>
+            <div class="col"><%= user.numero %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>Data da Criação:</b></div>
+            <div class="col"><%= new Date(user.data_criacao).toUTCString()  %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"> <b>Data da Atualização:</b></div>
+            <div class="col"><%= new Date(user.data_atualizacao).toUTCString()  %></div>
+        </div>
+    </li>
+</ul>
