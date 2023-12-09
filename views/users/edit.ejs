@@ -2,7 +2,7 @@
   <h1 class="h2">Editing: <%= user.nome %></h1>
   <div class="btn-toolbar mb-2 mb-md 0">
     <div class="btn-group me-2">
-      <button class="btn btn-sm btn-outline-secondary">?</button>
+      <a href="/addAdmin" class="btn btn-sm btn-outline-secondary">+ Novo Usuário</a>
     </div>
   </div>
 </div>
@@ -12,7 +12,7 @@
     <div class="col">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/paineldecontrol">Painel de Controle</a></li>
           <li class="breadcrumb-item active"><%= user.nome %></li>
         </ol>
       </nav>
@@ -49,7 +49,7 @@
         <input type="number" class="form-control" id="numero" name="numero" value="<%= user.numero %>" placeholder="123456789">
     </div>
     <div class="form-group mb-4">
-      <button type="submit" class="btn btn-primary">Atualizar Usuário</button>
+      <button type="" class="btn btn-primary">Atualizar Usuário</button>
       <button type="button" class="btn btn-danger" data-bs-toggle="modal" id="deleteButton" data-bs-target="#deleteModal">Deletar Usuário</button>
     </div>
 </div>

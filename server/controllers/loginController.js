@@ -120,7 +120,8 @@ exports.postAdmin = async (req, res) => {
         nome,
         email,
         senha: CryptografiaHash,
-        telefone: [{  ddd,  numero  }],
+        ddd,
+        numero,
     });
     try {
         await User.create(newUser);
@@ -165,26 +166,6 @@ exports.editUser = async (req, res) =>{
   }
 }
 
-// GET Atualizar Usuário - Ainda não funcionando
-/* exports.editPostUser = async (req, res) =>{
-  const {nome, email, senha, ddd, numero} = req.body
-  try {
-    await User.findByIdAndUpdate({
-      nome,
-      email,
-      senha,
-      telefone: {
-          ddd,
-          numero,
-      },
-      data_atualizacao: Date.now()
-    });
-    await res.redirect(`/edit/${req.params.id}`);
-  } catch (error) {
-    console.log(error);
-  }
-} */
-
 // Delete Deletar Usuário
 exports.deleteUser = async (req, res) =>{
   try {
@@ -194,22 +175,23 @@ exports.deleteUser = async (req, res) =>{
     console.log(error);
   }
 }
-//Function Checar Token
-/* function checkToken (req, res, next){
-  const authHeader = req.headers["authorization"]
-  const token = authHeader && authHeader.split (" ")[1]
-
-  if(!token) {
-      return res.status(401).json({ mensagem: "Não autorizado" })
-  }
+//Atualizar Usuário
+exports.editPostUser = async (req, res) => {
   try {
-      const secret = process.env.SECRET
-      jwt.verify(token, secret)
-      next()
+    await User.findByIdAndUpdate(req.params.id, {
+      nome: req.body.nome,
+      email: req.body.email,
+      ddd: req.body.ddd,
+      numero: req.body.numero,
+      data_atualizacao: Date.now(),
+    });
+    await res.redirect(`/edit/${req.params.id}`);
+    console.log("redirected");
   } catch (error) {
-      return res.status(401).json({ mensagem: "Não autorizado" })
+    console.log(error);
   }
-} */
+};
+
 // GET Buscar Usuário
 exports.searchUser = async (req, res) =>{
     const locals = {
@@ -217,10 +199,6 @@ exports.searchUser = async (req, res) =>{
     description: "Login - Buscar DataBase",
   };
    try {
-/*     const tokenValido = await checkToken(req.token);
-/*     if (!tokenValido) {
-      return res.status(401).json({ mensagem: "Token inválido ou expirado" });
-    } */
     let buscarTerm = req.body.buscarTerm;
     const buscarNoSpecialChar = buscarTerm.replace(/[^a-zA-Z0-9 ]/g, "");
     const users = await User.find({
