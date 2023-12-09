@@ -1,19 +1,47 @@
-<div class="container">
-    <h1>Login</h1>
+<main class="form-signin w-100 m-auto">
+    <div class="d-grid gap-2 col-2 mx-auto position-absolute top-50 start-50 translate-middle">
+        <form action ="/login" method="post" id="loginForm">
+                <p></p>
+            <h1 class="h3 mb-3 fw-normal">Login</h1>
+        
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="nome@example.com">
+                <label for="floatingInput">Email</label>
+                <p></p>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="senha">
+                <label for="floatingPassword">Senha</label>
+            </div>
+            <p></p>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+                <button type="button" class="w-100 btn btn-success" onclick="window.location.href='/addAdmin'">Registre-se</button>
+                <button type="button" class="w-100 btn btn-outline-dark" onclick="window.location.href='/paineldecontrole'">DemoAdmin</button>
+            </div>
+        </form>
+    </div>
+</main>
+<!-- <div class="position-absolute top-50 start-50 translate-middle shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
 
     <form action ="/login" method="post" id="loginForm">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="seu@email.com">
-    
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-
+        <div class="form-floating">
+            <label for="floatingInput"></label>
+            <input class="form-control" type="email" id="email" name="email" required placeholder="seu@email.com">
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        
+            <label for="floatingPassword"></label>
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+        </div>
         <button type="submit">Login</button>
     </form>
     <p id="mensagem"></p>
     <hr>
     <div>
-        <!-- <button type="button" class="button2" onclick="DemoAdmin()">DemoAdmin</button> -->
-        <button type="button" class="button2" onclick="window.location.href='/addAdmin'">Registre-se</button>
+        <button type="button" class="button2 opacity-75" onclick="window.location.href='/paineldecontrole'">DemoAdmin</button>
+        <button type="button" class="button2 opacity-75" onclick="window.location.href='/addAdmin'">Registre-se</button>
     </div>
-</div>
+</div> -->
