@@ -62,12 +62,12 @@ exports.loginUser = async (req, res) => {
   }
   try {
       user.ultimo_login = new Date();
-      const secret = process.env.SECRET
-      const token = jwt.sign(
-          {
-              id: user.id,
-          }, secret, { expiresIn: 60 * 60 }
-      )
+//       const secret = process.env.SECRET
+//      const token = jwt.sign(
+//          {
+//              id: user.id,
+//          }, secret, { expiresIn: 60 * 60 }
+//      )
       res.redirect("/paineldecontrole");
       //res.status(200).json({ mensagem: "Autenticação realizada com sucesso", token})
   } catch (error) {
